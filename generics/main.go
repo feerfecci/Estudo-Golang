@@ -11,8 +11,12 @@ func main() {
 	fmt.Println(newString)
 }
 
+type ConstraintCustom interface {
+	int | string
+}
+
 //[T int | string] usado para passar todos os tipo aceitaveis para esse método
-func reverse[T int | string](slice []T) []T {
+func reverse[T ConstraintCustom](slice []T) []T {
 	newInt := make([]T, len(slice))
 
 	newIntLen := len(slice) - 1
